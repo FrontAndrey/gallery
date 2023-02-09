@@ -3,6 +3,7 @@ const sortCategory = document.querySelector('.category-img')
 const sortDate = document.querySelector('.date-img')
 const sortName = document.querySelector('.name-img')
 const reset = document.querySelector('.reset-gallery')
+let cardArray = localStorage.getItem('card') ? JSON.parse(localStorage.getItem('card')) : [];
 
 //Прелоад
 window.onload = function () {
@@ -32,11 +33,14 @@ let renderItems = (data) => {
         category,
         image
     }) => {
+
         // Создаем карточку по верстке для автозаполнения 
         const elem = document.createElement('div');
         elem.classList.add('card')
+
         //Перевод даты
         let time = new Date(timestamp).toLocaleDateString("en-US")
+
         //Перерисовка карточек
         elem.innerHTML = `
             <div class="card-header">
@@ -50,6 +54,7 @@ let renderItems = (data) => {
             <div class='size'>${filesize}</div>
             <button class="close">&times;</button>
             `
+
         //Добавляем карточку в конец списка
         cards.append(elem)
 
@@ -60,7 +65,14 @@ let renderItems = (data) => {
                 return
             }
             btn.parentElement.remove()
-            localStorage.setItem('card', JSON.stringify())
+            const elemItem = {
+                image,
+                category,
+                filesize,
+                time
+            }
+            cardArray.push(elemItem)
+            localStorage.setItem('card', JSON.stringify(cardArray))
         })
     });
 
@@ -72,6 +84,7 @@ let renderItems = (data) => {
         })
         renderItems(data)
     })
+
     //сортировка по категории
     sortCategory.addEventListener('click', () => {
         cards.innerHTML = ''
@@ -81,6 +94,7 @@ let renderItems = (data) => {
         data.reverse()
         renderItems(data)
     })
+
     //сортировка по размеру
     sortSize.addEventListener('click', () => {
         cards.innerHTML = ''
@@ -90,6 +104,7 @@ let renderItems = (data) => {
         renderItems(data)
     })
 }
+
 //Обновление страницы с карточками
 reset.addEventListener('click', () => {
     localStorage.clear()
