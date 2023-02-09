@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Challenge Boro</title>
+</head>
+<body>
+    <div class="preloader">
+        <div class="preloader__row">
+          <div class="preloader__item"></div>
+          <div class="preloader__item"></div>
+        </div>
+      </div>
+    <header class="header">
+        <div class="type-cite">
+            <span>Выбор отображения страницы:</span>
+            <input type="radio" name="gallery" id="1" value="gallery" checked>
+            <label for="1">Галерея</label>
+            <input type="radio" name="gallery" id="2" value="wood">
+            <label for="2">Древо</label>
+        </div>
+        <div class="type-sort">
+            <span class="sort">Сортировка по:</span>
+            <input type="radio" name="sort" id="3" value="category-img" class="category-img" checked>
+            <label for="3">Категории</label>
+            <input type="radio" name="sort" id="4" value="date-img" class="date-img">
+            <label for="4">Дате</label>
+            <input type="radio" name="sort" id="5" value="name-img" class="name-img">
+            <label for="5">Названию</label>
+            <input type="radio" name="sort" id="6" value="size-img" class="size-img">
+            <label for="6">Размеру</label>
+        </div>
+    </header>
+    <section class="main__content">
+        <div class="gallery">
+            <div class="cards">
+                
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer-inform">
+            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="github" width="18px">
+            <a href="https://github.com/FrontAndrey">@FrontAndrey</a>
+        </div>
+        <span>Возврат к первоночальному виду</span>
+        <button class="reset-gallery">Клик</button>
+    </footer>
+   <script src="index.js"></script>
+</body>
+</html>
