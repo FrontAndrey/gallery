@@ -16,7 +16,7 @@ window.onload = function () {
 
 //Получение данных с сервера
 const cards = document.querySelector('.cards')
-fetch('http://contest.elecard.ru/frontend_data/catalog.json')
+fetch(`http://contest.elecard.ru/frontend_data/catalog.json`)
     .then((response) => response.json())
     .then((data) => {
         renderItems(data);
