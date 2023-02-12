@@ -103,10 +103,11 @@ let renderItems = (data) => {
         })
         renderItems(data)
     })
-}
 
-//Обновление страницы с карточками
-reset.addEventListener('click', () => {
-    localStorage.clear()
-    location.reload();
-})
+    //Обновление страницы с карточками
+    reset.addEventListener('click', () => {
+        localStorage.clear()
+        cards.innerHTML = ''
+        renderItems(data)
+    })
+}
